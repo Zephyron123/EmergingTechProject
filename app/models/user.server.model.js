@@ -8,8 +8,12 @@ const CustomerSchema = new mongoose.Schema({
     accountType: {
         type: String,
         enum: ["Patient", "Nurse"]
-    }
+    },
+    patientData: [{
+        type: Schema.Type.ObjectId,
+        ref: "PatientData"
+    }]
 });
 
 // Creates the customer model.
-mongoose.model('Customer', CustomerSchema);
+mongoose.model('User', UserSchema);
