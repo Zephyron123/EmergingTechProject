@@ -31,6 +31,10 @@ exports.render = (req, res, next) => {
     //}
 };
 
+userExists = async (user) => {
+    return await UserModel.exists(user);
+}
+
 exports.post = (req, res, next) => {
 	const body = req.body;
 
@@ -48,7 +52,9 @@ exports.post = (req, res, next) => {
 
 	if (exists) {
 		res.render('signup', {
-			title: title
-		});
+            title: title,
+            error: 'Username already exists!'
+        });
+        return;
 	}
 }
