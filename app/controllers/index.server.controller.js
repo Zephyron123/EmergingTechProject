@@ -18,7 +18,7 @@ const customer = require('./customer.server.controller');
 //         }
 //     } else {
         res.render('index', {
-            title: "Metro General Home Page"
+            title: "Penguin General Home Page"
         });
 //     }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <form method="post">
+        <div class="field">
+            <label class="label" for="userName">Username</label>
+            <div class="control">
+              <input class="input" type="text" id="userName" name="username" placeholder="Text input">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="passWord">Password</label>
+            <div class="control">
+              <input class="input" type="text" id="passWord" name="password" placeholder="Text input">
+            </div>
+        </div>
+>
+        <div class="control is-grouped">
+            <input class="button is-link" type="submit" value="Submit" name="submit"/>
+        </div>
+    </form>
+</body>
+</html>
