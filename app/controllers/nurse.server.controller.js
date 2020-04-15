@@ -1,24 +1,3 @@
-
-exports.render = (req, res, next) => {
-    /*if (req.method == "POST") {
-        const body = req.body;
-
-        if (body.email && body.password) {
-            // All the fields are filled. Perform the login
-            customer.login(req, res, next);
-        } else {
-            // Missing fields. Re-render the page passing an error message.
-            res.render('index', {
-                error: 'Please, enter your email and password!',
-                email: strUtils.getSafe(body.email),
-            });
-        }
-    } else {*/
-        res.render('index', {
-            title: "Main Page"
-        });
-    //}
-}
 exports.report = (req, res) => {
 	res.render('index', {
 		title: "Emergency Response"
@@ -36,6 +15,6 @@ exports.submitMotivation = (req, res) => {
 }
 exports.render = (req, res) => {
 	res.render('index', {
-		title: "Patient Report"
+		title: "Nurse Profile"
 	});
 }
