@@ -3,7 +3,7 @@ const customer = require('./customer.server.controller');
 
 exports.render = (req, res, next) => {
     // We are currently sending user data.
-    if (req.method == "POST") {
+    /*if (req.method == "POST") {
         const body = req.body;
 
         if (body.email && body.firstName && body.lastName && body.password) {
@@ -21,15 +21,9 @@ exports.render = (req, res, next) => {
                 favoriteLang: strUtils.getSafe(body.favoriteLang)
             });
         }
-    } else {
+    } else {*/
         res.render('signup', {
-            error: '',
-            email: '',
-            firstName: '',
-            lastName: '',
-            password: '',
-            motherTongue: '',
-            favoriteLang: ''
+            title: "Signup Page"
         });
-    }
+    //}
 };
