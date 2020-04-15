@@ -3,7 +3,7 @@ const customer = require('./customer.server.controller');
 
 
 exports.render = (req, res, next) => {
-    if (req.method == "POST") {
+    /*if (req.method == "POST") {
         const body = req.body;
 
         if (body.email && body.password) {
@@ -16,10 +16,9 @@ exports.render = (req, res, next) => {
                 email: strUtils.getSafe(body.email),
             });
         }
-    } else {
+    } else {*/
         res.render('index', {
-            error: '',
-            email: ''
+            title: "Main Page"
         });
-    }
+    //}
 }
