@@ -26,10 +26,18 @@ exports.render = (req, res, next) => {
         }
     } else {*/
         res.render('signup', {
-            title: "Signup Page"
+            title: title
         });
     //}
 };
+
+function showError(err, msg = "unknown error occured") {
+	console.log(err);
+	res.render("signup", {
+		title: title,
+		error: msg
+	});
+}
 
 exports.post = (req, res, next) => {
 	const body = req.body;
@@ -44,11 +52,22 @@ exports.post = (req, res, next) => {
 		user.patientData = [];
 	}
 
-	const exists = await CustomerModel.exists({username: user.username});
+	CustomerModel.exists({username: user.username}, (err, result) => {
+		if (err) {
+			showError(err);
+			return;
+		}
+		if (result) {
+			showError("Username already exists");
+			return;
+		}
 
-	if (exists) {
-		res.render('signup', {
-			title: title
+		CustomerModel.create(user, (err) => {
+			if (err) {
+				showError(err);
+				return;
+			} 
+			req.session.user = user;
 		});
-	}
+	});
 }
