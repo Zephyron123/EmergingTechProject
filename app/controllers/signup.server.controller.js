@@ -25,36 +25,75 @@ exports.render = (req, res, next) => {
             });
         }
     } else {*/
-        res.render('signup', {
-            title: "Signup Page"
-        });
+    res.render('signup', {
+        title: "Signup Page"
+    });
     //}
 };
 
-userExists = async (user) => {
-    return await UserModel.exists(user);
+unknownError(err) {
+    console.log(err);
+
+    res.render('signup', {
+        title: title,
+        error: 'Unknown error occurred'
+    });
+    return;
 }
 
 exports.post = (req, res, next) => {
-	const body = req.body;
+        const body = req.body;
 
-	const user = {
-		username = body.username,
-		password = body.password,
-		accounttype = body.accounttype
-	};
+        const user = {
+            username = body.username,
+            password = body.password,
+            accounttype = body.accounttype
+        };
 
-	if (user.accounttype == "Patient") {
-		user.patientData = [];
-	}
+        if (user.accounttype == "Patient") {
+            user.patientData = [];
+        }
 
-	const exists = await CustomerModel.exists({username: user.username});
+        UserModel.exists({
+                    username: user.username
+                }, (err, result) => {
+                    if (err) {
+                        console.log(err);
 
-	if (exists) {
-		res.render('signup', {
-            title: title,
-            error: 'Username already exists!'
-        });
-        return;
-	}
-}
+                        res.render('signup', {
+                            title: title,
+                            error: 'Unknown error occurred'
+                        });
+                        return;
+                    }
+
+
+                    if (result) {
+                        res.render('signup', {
+                            title: title,
+                            error: 'Username already exists'
+                        });
+                        return;
+                    }
+
+                    UserModel.create(user, (err) => {
+                        if (err) {
+                            console.log(err);
+
+                            res.render('signup', {
+                                title: title,
+                                error: 'Unknown error occurred'
+                            });
+                            return;
+                        }
+                        req.session = user;
+                    });
+                }
+
+                // if (exists) {
+                //     res.render('signup', {
+                //         title: title,
+                //         error: 'Username already exists!'
+                //     });
+                //     return;
+                // }
