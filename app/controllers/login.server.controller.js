@@ -18,7 +18,7 @@ exports.render = (req, res, next) => {
         }
     } else {*/
         res.render('login', {
-            title: "Main Page"
+            title: "Login Page"
         });
     //}
 }
