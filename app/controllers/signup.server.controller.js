@@ -1,5 +1,8 @@
 ﻿const strUtils = require('../utils/string.server.utils');
 const customer = require('./customer.server.controller');
+const CustomerModel = require('mongoose').model('Customer');
+
+const title = "Sign Up";
 
 exports.render = (req, res, next) => {
     // We are currently sending user data.
@@ -30,5 +33,22 @@ exports.render = (req, res, next) => {
 
 exports.post = (req, res, next) => {
 	const body = req.body;
-	console.log(body);
+
+	const user = {
+		username = body.username,
+		password = body.password,
+		accounttype = body.accounttype
+	};
+
+	if (user.accounttype == "Patient") {
+		user.patientData = [];
+	}
+
+	const exists = await CustomerModel.exists({username: user.username});
+
+	if (exists) {
+		res.render('signup', {
+			title: title
+		});
+	}
 }
