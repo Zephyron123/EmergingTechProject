@@ -7,7 +7,8 @@ module.exports = () => {
     const db = mongoose.connect(config.db, { useNewUrlParser: true });
 
     // Load the 'Customer' model
-    require('../app/models/customer.server.model');
+	require('../app/models/customer.server.model');
+	require('../app/models/patientdata.server.model');
 
     // Return the Mongoose connection instance
     return db;

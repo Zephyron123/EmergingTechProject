@@ -9,4 +9,5 @@
 	app.post('/', index.render);
 	app.get('/login', login.render);
 	app.get('/signup', signup.render);
+	app.post('/signup', signup.post);
 }
