@@ -1,0 +1,21 @@
+{
+  "name": "emergingtechproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zephyron123/EmergingTechProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zephyron123/EmergingTechProject/issues"
+  },
+  
+  "homepage": "https://github.com/Zephyron123/EmergingTechProject#readme"
+}
+
