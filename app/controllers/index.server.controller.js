@@ -18,7 +18,7 @@ exports.render = (req, res, next) => {
         }
     } else {*/
         res.render('index', {
-            title: "Main Page"
+            title: "Medical Cartel"
         });
     //}
 }
