@@ -22,3 +22,8 @@ exports.render = (req, res, next) => {
         });
     //}
 }
+
+exports.post = (req, res, next) => {
+    const body = req.body;
+    
+}
