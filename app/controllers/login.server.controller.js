@@ -17,8 +17,8 @@ exports.render = (req, res, next) => {
             });
         }
     } else {*/
-        res.render('index', {
-            title: "Medical Cartel"
+        res.render('login', {
+            title: "Medical Cartel Login"
         });
     //}
 }
