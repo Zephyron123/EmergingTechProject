@@ -1,7 +1,3 @@
-const strUtils = require('../utils/string.server.utils');
-const customer = require('./customer.server.controller');
-
-
 exports.render = (req, res, next) => {
     /*if (req.method == "POST") {
         const body = req.body;

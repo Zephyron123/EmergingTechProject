@@ -1,6 +1,4 @@
-﻿const strUtils = require('../utils/string.server.utils');
-const customer = require('./customer.server.controller');
-const CustomerModel = require('mongoose').model('Customer');
+﻿const CustomerModel = require('mongoose').model('Customer');
 
 const title = "Sign Up";
 
@@ -31,21 +29,22 @@ exports.render = (req, res, next) => {
     //}
 };
 
-function showError(err, msg = "unknown error occured") {
-	console.log(err);
-	res.render("signup", {
-		title: title,
-		error: msg
-	});
-}
+
 
 exports.post = (req, res, next) => {
+	function showError(err, msg = "unknown error occured") {
+		console.log(err);
+		res.render("signup", {
+			title: title,
+			error: msg
+		});
+	}
 	const body = req.body;
 
 	const user = {
-		username = body.username,
-		password = body.password,
-		accounttype = body.accounttype
+		username: body.username,
+		password: body.password,
+		accounttype: body.accounttype
 	};
 
 	if (user.accounttype == "Patient") {
@@ -58,7 +57,7 @@ exports.post = (req, res, next) => {
 			return;
 		}
 		if (result) {
-			showError("Username already exists");
+			showError(result, "Username already exists");
 			return;
 		}
 
@@ -68,6 +67,12 @@ exports.post = (req, res, next) => {
 				return;
 			} 
 			req.session.user = user;
+			if (user.accounttype == "Patient") {
+				res.redirect("patient");
+			}
+			else if (user.accounttype == "Nurse") {
+				res.redirect("nurse");
+			}
 		});
 	});
 }
