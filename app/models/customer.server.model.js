@@ -3,22 +3,12 @@ const mongoose = require('mongoose');
 
 // Defines the Customer schema.
 const CustomerSchema = new mongoose.Schema({
-    email: {
-        type: String,
-        index: true,
-        match: /.+\@.+\..+/
-    },
-    firstName: String,
-    lastName: String,
+    username: String,
     password: String,
-    comments: String,
-    motherTongue: String,
-    favoriteLang: String,
-    isAdmin: Boolean,
-    created: {
-        type: Date,
-        default: Date.now()
-    }
+    accounttype: {
+		type: String,
+		enum: ['Patient', 'Nurse']
+	}
 });
 
 // Creates the customer model.
