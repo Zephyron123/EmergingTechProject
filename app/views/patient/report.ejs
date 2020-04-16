@@ -24,21 +24,29 @@
 					</div>
 				</div>
 				<div class="control">
+					<label class="label" for="accounttype">Account Type:</label>
+					<div class="select">
+						<select id="accounttype" name="accounttype">
+							<option>Patient</option>
+							<option>Nurse</option>
+						</select>
+					</div>
+				</div>
+				<div class="control">
 					<input class="button is-link" type="submit" value="Submit" />
 				</div>
 			</form>
+			<% if (locals.error) { %>
+			<section class="section">
+				<div class="container">
+					<div class="notification is-danger">
+						<%= error %>
+					</div>
+				</div>
+			</section>
+			<% } %>
 		</div>
 	</section>
-
-	<% if (locals.status) { %>
-	<section class="section">
-		<div class="container">
-			<div class="notification is-success">
-				<%= status %>
-			</div>
-		</div>
-	</section>
-	<% } %>
 </body>
 
 </html>

@@ -1,14 +1,11 @@
-﻿exports.render = (req, res, next) => {
-	const user = req.session.user;
+﻿const sessionController = require('./session.server.controller');
 
-	if (user) {
-		if (user.accounttype == "Patient") {
-			res.redirect("patient");
-		} else if (user.accounttype == "Nurse") {
-			res.redirect("nurse");
-		}
-	}
-	res.render("index", {
-		title: "Main Page",
+
+exports.render = (req, res, next) => {
+	sessionController.get(req, res, () => {
+		res.render("index", {
+			title: "Main Page",
+		});
 	});
+	
 };

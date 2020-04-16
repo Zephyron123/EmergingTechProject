@@ -2,10 +2,16 @@ const CustomerModel = require("mongoose").model("Customer");
 
 const title = "Log In";
 
+const sessionController = require('./session.server.controller');
+
+
 exports.render = (req, res, next) => {
-	res.render("login", {
-		title: title,
+	sessionController.get(req, res, () => {
+		res.render("login", {
+			title: title,
+		});
 	});
+	
 };
 
 exports.post = (req, res) => {
