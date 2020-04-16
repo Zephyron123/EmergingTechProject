@@ -38,7 +38,7 @@ exports.reportPost = (req, res) => {
 		bloodPressure: body.bloodPressure,
 		respiratoryRate: body.respiratoryRate,
 		weight: body.weight,
-		userId: patientId
+		userID: patientId
 	};
 
 	PatientDataModel.create(patientData, (err, returnedPatientData) => {
@@ -58,7 +58,6 @@ exports.reportPost = (req, res) => {
 		}
 	});
 }
-
 
 exports.viewReportsGet = (req, res) => {
 	CustomerModel.find({ accounttype: "Patient" }, (err, customers) => {
@@ -88,8 +87,10 @@ exports.viewReportsPost = (req, res) => {
 	const patientUsername = req.body.patientUsername;
 
 	patients.forEach((patient) => {
-		if (patient.username = patientUsername) {
-			PatientDataModel.find({ userId: patient._Id }, (err, patientData) => {
+		if (patient.username == patientUsername) {
+			console.log(patient.username, patientUsername, patient._id);
+
+			PatientDataModel.find({ userID: patient._id }, (err, patientData) => {
 				const reports = [];
 
 				patientData.forEach(data => {
@@ -140,11 +141,3 @@ exports.render = (req, res) => {
 		title: "Nurse Profile",
 	});
 };
-
-// CustomerModel.find([], (err, customers) => {
-
-// });
-
-// exports.listAllPatientUsernames = (req, res) => {
-
-// }

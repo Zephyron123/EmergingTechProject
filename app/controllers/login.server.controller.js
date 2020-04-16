@@ -1,9 +1,6 @@
 const CustomerModel = require("mongoose").model("Customer");
-
-const title = "Log In";
-
 const sessionController = require('./session.server.controller');
-
+const title = "Log In";
 
 exports.render = (req, res, next) => {
 	sessionController.get(req, res, () => {
@@ -11,7 +8,6 @@ exports.render = (req, res, next) => {
 			title: title,
 		});
 	});
-	
 };
 
 exports.post = (req, res) => {
@@ -51,49 +47,3 @@ exports.post = (req, res) => {
 	});
 	
 }
-
-/*exports.post = (req, res, next) => {
-	function showError(err, msg = "unknown error occured") {
-		console.log(err);
-		res.render("signup", {
-			title: title,
-			error: msg
-		});
-	}
-	const body = req.body;
-
-	const user = {
-		username: body.username,
-		password: body.password,
-		accounttype: body.accounttype
-	};
-
-	if (user.accounttype == "Patient") {
-		user.patientData = [];
-	}
-
-	CustomerModel.exists({username: user.username}, (err, result) => {
-		if (err) {
-			showError(err);
-			return;
-		}
-		if (result) {
-			showError(result, "Username already exists");
-			return;
-		}
-
-		CustomerModel.create(user, (err) => {
-			if (err) {
-				showError(err);
-				return;
-			} 
-			req.session.user = user;
-			if (user.accounttype == "Patient") {
-				res.redirect("patient");
-			}
-			else if (user.accounttype == "Nurse") {
-				res.redirect("nurse");
-			}
-		});
-	});
-}*/

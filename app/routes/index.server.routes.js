@@ -18,9 +18,10 @@
 	app.get('/patient', patient.render);
 	app.get('/patient/emergency', patient.emergency);
 	app.get('/patient/motivation', patient.motivation);
-	app.get('/patient/report', patient.report);
-	app.post('/patient/report', patient.post);
-	app.get('/patient/diagnosis', patient.diagnosis);
+	app.get('/patient/report', patient.reportGet);
+	app.post('/patient/report', patient.reportPost);
+	app.get('/patient/diagnosis', patient.diagnosisGet);
+	app.post('/patient/diagnosis', patient.diagnosisPost);
 
 	app.get('/nurse', nurse.render);
 	app.get('/nurse/report', nurse.reportGet);

@@ -1,8 +1,7 @@
 ﻿const CustomerModel = require("mongoose").model("Customer");
+const sessionController = require('./session.server.controller');
 
 const title = "Sign Up";
-
-const sessionController = require('./session.server.controller');
 
 exports.render = (req, res, next) => {
 	sessionController.get(req, res, () => {
@@ -48,6 +47,7 @@ exports.post = (req, res, next) => {
 				showError(err);
 				return;
 			}
+			console.log(returnedUser._id);
 			req.session.user = returnedUser;
 			if (returnedUser.accounttype == "Patient") {
 				res.redirect("patient");

@@ -1,35 +1,9 @@
-
-
-exports.readData = function (req, res) {
-    /*
-    const csv = require('csvtojson')
-    const fs = require('fs')
-    const csvFilePath = './hepatitis_data.csv'
-    
-    csv()
-        .fromFile(csvFilePath)
-        .then((jsonObj) => {
-            console.log(jsonObj);
-            let data = JSON.stringify(jsonObj, null,2)
-            //let data = jsonObj
-            fs.writeFile('./hep1.json', data, (err) => {
-                if (err) throw err;
-                console.log('Data written to file');
-            });
-
-            console.log('This is after the write call');
-            
-        })
-        */
-};
-
-//
-exports.trainAndPredict = function (req, res) {
+exports.trainAndPredict = function (req, res, next) {
     const tf = require('@tensorflow/tfjs');
     require('@tensorflow/tfjs-node');
     //load iris training and testing data
-    const hep = require('../../hep.json');
-    const hepTesting = require('../../hep_test.json');
+    const hep = require('../modeles_training/hep.json');
+    const hepTesting = req.hepTestData;
     console.log(hepTesting)
     //
     //
@@ -156,7 +130,12 @@ exports.trainAndPredict = function (req, res) {
         const results = model.predict(testingData);
         results.print()
         // get the values from the tf.Tensor
-        //var tensorData = results.dataSync();
+		//var tensorData = results.dataSync();
+
+		res.hepResult = results;
+		next(req, res);
+
+		/*
         results.array().then(array => {
             console.log(array)
             var resultForTest1 = array[0];
@@ -173,7 +152,7 @@ exports.trainAndPredict = function (req, res) {
                     resultForTest3: resultForTest3
                 }
             )
-        })
+        })*/
     } //end of run function
     run()
     //

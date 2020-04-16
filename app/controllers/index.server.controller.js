@@ -7,5 +7,4 @@ exports.render = (req, res, next) => {
 			title: "Main Page",
 		});
 	});
-	
 };

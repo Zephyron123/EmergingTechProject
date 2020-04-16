@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+	<title>Medical Cartel</title>
+</head>
+
+<body>
+	<section class="section">
+		<div class="container">
+			<form method="POST">
+				<div class="columns">
+					<div class="column">
+						<div class="field">
+							<label class="label" for="Age">Age</label>
+							<div class="control">
+								<input class="input" type="number" id="Age" name="Age" placeholder="Age">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Bilurubin">Bilurubin</label>
+							<div class="control">
+								<input class="input" type="number" id="Bilurubin" name="Bilurubin"
+									placeholder="Bilurubin">
+							</div>
+						</div>
+
+						<div class="field">
+							<label class="label" for="Alk_phosphate">Alk_phosphate</label>
+							<div class="control">
+								<input class="input" type="number" id="Alk_phosphate" name="Alk_phosphate"
+									placeholder="Alk_phosphate">
+							</div>
+						</div>
+
+						<div class="field">
+							<label class="label" for="Sgot">Sgot</label>
+							<div class="control">
+								<input class="input" type="number" id="Sgot" name="Sgot" placeholder="Sgot">
+							</div>
+						</div>
+
+						<div class="field">
+							<label class="label" for="Albumin">Albumin</label>
+							<div class="control">
+								<input class="input" type="number" id="Albumin" name="Albumin" placeholder="Albumin">
+							</div>
+						</div>
+
+						<div class="field">
+							<label class="label" for="Protime">Protime</label>
+							<div class="control">
+								<input class="input" type="number" id="Protime" name="Protime" placeholder="Protime">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Sex">Sex</label>
+							<div class="control">
+								<div class="select">
+									<select id="Sex" name="Sex">
+										<option value=1>Male</option>
+										<option value=2>Female</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Steroid">Steroid</label>
+							<div class="control">
+								<div class="select">
+									<select id="Steroid" name="Steroid">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Antivirals">Antivirals</label>
+							<div class="control">
+								<div class="select">
+									<select id="Antivirals" name="Antivirals">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Fatigue">Fatigue</label>
+							<div class="control">
+								<div class="select">
+									<select id="Fatigue" name="Fatigue">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Malaise">Malaise</label>
+							<div class="control">
+								<div class="select">
+									<select id="Malaise" name="Malaise">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label class="label" for="Anorexia">Anorexia</label>
+							<div class="control">
+								<div class="select">
+									<select id="Anorexia" name="Anorexia">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Liver_big">Liver_big</label>
+							<div class="control">
+								<div class="select">
+									<select id="Liver_big" name="Liver_big">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Liver_firm">Liver_firm</label>
+							<div class="control">
+								<div class="select">
+									<select id="Liver_firm" name="Liver_firm">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Spleen_palpable">Spleen_palpable</label>
+							<div class="control">
+								<div class="select">
+									<select id="Spleen_palpable" name="Spleen_palpable">
+										<option value=1>Yes</option>
+										<option value=2>No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="field">
+							<label class="label" for="Spiders">Spiders</label>
+							<div class="control">
+								<div class="select">
+									<select id="Spiders" name="Spiders">
+										<option value=1>False</option>
+										<option value=2>True</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="field">
+							<label class="label" for="Ascites">Ascites</label>
+							<div class="control">
+								<div class="select">
+									<select id="Ascites" name="Ascites">
+										<option value=1>False</option>
+										<option value=2>True</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="field">
+							<label class="label" for="Varices">Varices</label>
+							<div class="control">
+								<div class="select">
+									<select id="Varices" name="Varices">
+										<option value=1>False</option>
+										<option value=2>True</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label" for="Histology">Histology</label>
+							<div class="control">
+								<div class="select">
+									<select id="Histology" name="Histology">
+										<option value=1>No</option>
+										<option value=2>Yes</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container">
+					<p>Diagnosis can take up to 5 minutes</p>
+				</div>
+
+				<div class="notification is-info">
+					<p><%= livedie %></p>
+				</div>
+
+				<div class="control">
+					<input class="button is-link" type="submit" value="Submit" />
+					<a class="button" href="/">Go Back</a>
+				</div>
+			</form>
+			<% if (locals.error) { %>
+			<section class="section">
+				<div class="container">
+					<div class="notification is-danger">
+						<%= error %>
+					</div>
+				</div>
+			</section>
+			<% } %>
+		</div>
+	</section>
+</body>
+
+</html>
