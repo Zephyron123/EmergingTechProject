@@ -20,12 +20,11 @@ exports.viewMotivation = (req, res) => {
 			motivations: result
 		});
 	});
-	
-
-}
 	res.render('nurse/submitMotivation', {
 		title: "Submit Motivation"
 	});
+}
+	
 exports.report = (req, res) => {
 	res.render('index', {
 		title: "Patient Report"
