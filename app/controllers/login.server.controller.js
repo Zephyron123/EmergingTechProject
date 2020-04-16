@@ -17,7 +17,7 @@ exports.render = (req, res, next) => {
 exports.post = (req, res) => {
 	function showError(err, msg = "unknown error occured") {
 		console.log(err);
-		res.render("signup", {
+		res.render("login", {
 			title: title,
 			error: msg
 		});

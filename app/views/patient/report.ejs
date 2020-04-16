@@ -12,28 +12,38 @@
 		<div class="container">
 			<form method="POST">
 				<div class="field">
-					<label class="label" for="username">Username:</label>
+					<label class="label" for="bodyTemp">Body Temperature:</label>
 					<div class="control">
-						<input class="input" type="text" name="username" placeholder="Text Input" />
+						<input class="input" type="text" name="bodyTemp" placeholder="Text Input" />
 					</div>
 				</div>
 				<div class="field">
-					<label class="label" for="password">Password:</label>
+					<label class="label" for="heartRate">Heart Rate:</label>
 					<div class="control">
-						<input class="input" type="password" name="password" placeholder="Text Input" />
+						<input class="input" type="heartRate" name="heartRate" placeholder="Text Input" />
 					</div>
 				</div>
-				<div class="control">
-					<label class="label" for="accounttype">Account Type:</label>
-					<div class="select">
-						<select id="accounttype" name="accounttype">
-							<option>Patient</option>
-							<option>Nurse</option>
-						</select>
+				<div class="field">
+					<label class="label" for="bloodPressure">Blood Pressure:</label>
+					<div class="control">
+						<input class="input" type="bloodPressure" name="bloodPressure" placeholder="Text Input" />
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="respiratoryRate">Respiratory Rate:</label>
+					<div class="control">
+						<input class="input" type="respiratoryRate" name="respiratoryRate" placeholder="Text Input" />
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="weight">Weight:</label>
+					<div class="control">
+						<input class="input" type="weight" name="weight" placeholder="Text Input" />
 					</div>
 				</div>
 				<div class="control">
 					<input class="button is-link" type="submit" value="Submit" />
+					<a class="button" href="/patient">Go Back</a>
 				</div>
 			</form>
 			<% if (locals.error) { %>
@@ -41,6 +51,16 @@
 				<div class="container">
 					<div class="notification is-danger">
 						<%= error %>
+					</div>
+				</div>
+			</section>
+			<% } %>
+
+			<% if (locals.success) { %>
+			<section class="section">
+				<div class="container">
+					<div class="notification is-success">
+						<%= success %>
 					</div>
 				</div>
 			</section>
