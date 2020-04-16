@@ -8,7 +8,8 @@ module.exports = () => {
 
     // Load the 'Customer' model
 	require('../app/models/customer.server.model');
-	require('../app/models/patientdata.server.model');
+    require('../app/models/patientdata.server.model');
+    require('../app/models/motivation');
 
     // Return the Mongoose connection instance
     return db;

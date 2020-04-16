@@ -25,6 +25,7 @@
 	app.get('/nurse/report', nurse.report);
 	app.get('/nurse/viewReports', nurse.viewReports);
 	app.get('/nurse/submitMotivation', nurse.submitMotivation);
+	app.post('/nurse/submitMotivation', nurse.submitMotivationPost);
 
 	app.get('/logout', (req, res) => {
 		req.session.user = null;
