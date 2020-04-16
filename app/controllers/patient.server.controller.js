@@ -14,7 +14,14 @@ exports.motivation = (req, res) => {
 exports.viewMotivation = (req, res) => {
 	MotivationModel.Find({}, (err, result) => {
 		console.log(result);
+
+		res.render('patient/viewMotivation', {
+			title: "Motivational Video",
+			motivations: result
+		});
 	});
+	
+
 }
 	res.render('nurse/submitMotivation', {
 		title: "Submit Motivation"
