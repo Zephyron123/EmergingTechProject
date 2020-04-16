@@ -1,3 +1,5 @@
+const MotivationModel = require('mongoose').model("Motivation");
+
 exports.emergency = (req, res) => {
 	res.render('patient/emergency', {
 		title: "Emergency Response"
@@ -8,6 +10,15 @@ exports.motivation = (req, res) => {
 		title: "Motivation Video"
 	});
 }
+
+exports.viewMotivation = (req, res) => {
+	MotivationModel.Find({}, (err, result) => {
+		console.log(result);
+	});
+}
+	res.render('nurse/submitMotivation', {
+		title: "Submit Motivation"
+	});
 exports.report = (req, res) => {
 	res.render('index', {
 		title: "Patient Report"
