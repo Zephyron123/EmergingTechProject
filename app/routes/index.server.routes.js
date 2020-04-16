@@ -24,7 +24,8 @@
 
 	app.get('/nurse', nurse.render);
 	app.get('/nurse/report', nurse.report);
-	app.get('/nurse/viewReports', nurse.viewReports);
+	app.get('/nurse/viewReports', nurse.viewReportsGet);
+	app.post('/nurse/viewReports', nurse.viewReportsPost);
 	app.get('/nurse/submitMotivation', nurse.submitMotivation);
 	app.post('/nurse/submitMotivation', nurse.submitMotivationPost);
 

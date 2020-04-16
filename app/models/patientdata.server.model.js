@@ -1,19 +1,24 @@
 // Loads the mongoose module and Schema object.
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Defines the Customer schema.
-const PatientDataSchema = new mongoose.Schema({
-	bodyTemp: Number,
-	heartRate: Number,
-	bloodPressure: Number,
-	respiratoryRate: Number,
-	weight: Number,
-	userID: {
-		type: Schema.Types.ObjectId,
-		ref: "User"
+const PatientDataSchema = new mongoose.Schema(
+	{
+		bodyTemp: Number,
+		heartRate: Number,
+		bloodPressure: Number,
+		respiratoryRate: Number,
+		weight: Number,
+		userID: {
+			type: Schema.Types.ObjectId,
+			ref: "User",
+		}
+	},
+	{
+		timestamps: true,
 	}
-});
+);
 
 // Creates the customer model.
-mongoose.model('PatientData', PatientDataSchema);
+mongoose.model("PatientData", PatientDataSchema);

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+	<title>Medical Cartel</title>
+</head>
+
+<body>
+	<section class="section">
+		<div class="container">
+			<h1 class="title is-1"><%= title %></h1>
+			<form method="POST">
+				<label class="label" for="Patient Reports">Patient Username:</label>
+				<div class="select">
+					<select id="patientUsername" name="patientUsername">
+						<% patients.forEach(function(patient){ %>
+						<option><%= patient.username %></option>
+						<% }); %>
+					</select>
+				</div>
+				<input class="button is-link" type="submit" value="Submit" />
+			</form>
+		</div>
+	</section>
+
+	<% if (locals.reports) { %>
+	<section class="section">
+		<div class="container">
+			<% reports.forEach(function(report){ %>
+				<article class="message is-info">
+					<div class="message-header">
+					  <p><%= report.createdAt %></p>
+					</div>
+					<div class="message-body">
+						Body Temp: <%= report.bodyTemp %>
+						<br>
+						Heart Rate: <%= report.heartRate %>
+						<br>
+						Blood Pressure: <%= report.bloodPressure %>
+						<br>
+						Respiratory Rate: <%= report.respiratoryRate %>
+						<br>
+						Weight: <%= report.weight %>
+					</div>
+				  </article>
+			<% }); %>
+			<br>
+		</div>
+	</section>
+	<% } %>
+
+	<% if (locals.error) { %>
+	<section class="section">
+		<div class="container">
+			<div class="notification is-danger">
+				<%= error %>
+			</div>
+		</div>
+	</section>
+	<% } %>
+</body>
+
+</html>

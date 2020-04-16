@@ -1,5 +1,6 @@
 const MotivationModel = require("mongoose").model("Motivation");
 const CustomerModel = require("mongoose").model("Customer");
+const PatientDataModel = require("mongoose").model("PatientData");
 
 const reportTitle = "Patient Report";
 
@@ -61,22 +62,37 @@ exports.post = (req, res) => {
 		weight: body.weight,
 	};
 
-	CustomerModel.update(
-		{ username: user.username },
-		{ $push: { patientData: patientData } },
-		(err) => {
-			if (err) {
-				console.log(err);
-				res.render("patient/report", {
-					title: reportTitle,
-					error: "Could not save report",
-				});
-			} else {
-				res.render("patient/report", {
-					title: reportTitle,
-					success: "Report saved successfully",
-				});
-			}
+	PatientDataModel.create(patientData, (err, returnedPatientData) => {
+		if (err) {
+			console.log(err);
+			res.render("patient/report", {
+				title: reportTitle,
+				error: "Could not save report",
+			});
+		} else {
+			res.render("patient/report", {
+				title: reportTitle,
+				success: "Report saved successfully",
+			});
 		}
-	);
+	});
+
+	// CustomerModel.update(
+	// 	{ username: user.username },
+	// 	{ $push: { patientData: patientData } },
+	// 	(err) => {
+	// 		if (err) {
+	// 			console.log(err);
+	// 			res.render("patient/report", {
+	// 				title: reportTitle,
+	// 				error: "Could not save report",
+	// 			});
+	// 		} else {
+	// 			res.render("patient/report", {
+	// 				title: reportTitle,
+	// 				success: "Report saved successfully",
+	// 			});
+	// 		}
+	// 	}
+	// );
 };
