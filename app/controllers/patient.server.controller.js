@@ -63,7 +63,7 @@ exports.diagnosisPost = (req, res) => {
 	hepatitisController.trainAndPredict(req, res, (req, res) => {
 		res.render("patient/diagnosis", {
 			title: "Diagnosis Report",
-			livedie: "Your chance of contracting hepatitis is: " + res.hepResult.arraySync()[0][0] * 100
+			livedie: "Your chance of contracting hepatitis is: " + res.hepResult.arraySync()[0][0] * 100 + "%"
 		})
 	});
 }
