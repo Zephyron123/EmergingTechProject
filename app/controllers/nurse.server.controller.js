@@ -38,6 +38,7 @@ exports.reportPost = (req, res) => {
 		bloodPressure: body.bloodPressure,
 		respiratoryRate: body.respiratoryRate,
 		weight: body.weight,
+		userId: patientId
 	};
 
 	PatientDataModel.create(patientData, (err, returnedPatientData) => {
@@ -45,11 +46,13 @@ exports.reportPost = (req, res) => {
 			console.log(err);
 			res.render("nurse/report", {
 				title: newReport,
+				patients: patients,
 				error: "Could not save report",
 			});
 		} else {
 			res.render("nurse/report", {
 				title: newReport,
+				patients: patients,
 				success: "Report saved successfully",
 			});
 		}
