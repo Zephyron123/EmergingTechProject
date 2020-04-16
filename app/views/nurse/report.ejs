@@ -15,7 +15,7 @@
 					<div class="select">
 						<select id="patientUsername" name="patientId">
 							<% patients.forEach(function(patient){ %>
-							<option value="patient._id"><%= patient.username %></option>
+							<option value="<%= patient._id %>"><%= patient.username %></option>
 							<% }); %>
 						</select>
 					</div>

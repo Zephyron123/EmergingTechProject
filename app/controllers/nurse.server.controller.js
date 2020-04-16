@@ -32,6 +32,8 @@ exports.reportPost = (req, res) => {
 
 	const patientId = body.patientId;
 
+	console.log("Hi fuck this", patientId);
+
 	const patientData = {
 		bodyTemp: body.bodyTemp,
 		heartRate: body.heartRate,
