@@ -29,22 +29,22 @@
 	<section class="section">
 		<div class="container">
 			<% reports.forEach(function(report){ %>
-				<article class="message is-info">
-					<div class="message-header">
-					  <p><%= report.createdAt %></p>
-					</div>
-					<div class="message-body">
-						Body Temp: <%= report.bodyTemp %>
-						<br>
-						Heart Rate: <%= report.heartRate %>
-						<br>
-						Blood Pressure: <%= report.bloodPressure %>
-						<br>
-						Respiratory Rate: <%= report.respiratoryRate %>
-						<br>
-						Weight: <%= report.weight %>
-					</div>
-				  </article>
+			<article class="message is-info">
+				<div class="message-header">
+					<p><%= report.createdAt %></p>
+				</div>
+				<div class="message-body">
+					Body Temp: <%= report.bodyTemp %>
+					<br>
+					Heart Rate: <%= report.heartRate %>
+					<br>
+					Blood Pressure: <%= report.bloodPressure %>
+					<br>
+					Respiratory Rate: <%= report.respiratoryRate %>
+					<br>
+					Weight: <%= report.weight %>
+				</div>
+			</article>
 			<% }); %>
 			<br>
 		</div>

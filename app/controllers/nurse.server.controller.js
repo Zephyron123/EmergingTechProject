@@ -3,12 +3,60 @@ const PatientDataModel = require("mongoose").model("PatientData");
 const CustomerModel = require("mongoose").model("Customer");
 
 const viewReportsTitle = "View Reports";
+const newReport = "New Patient Report"
 
-exports.report = (req, res) => {
-	res.render("index", {
-		title: "Report",
+exports.reportGet = (req, res) => {
+	CustomerModel.find({ accounttype: "Patient" }, (err, customers) => {
+		if (err) {
+			console.log(err);
+		}
+
+		req.session.patients = customers;
+		console.log(customers);
+
+		res.render("nurse/report", {
+			title: viewReportsTitle,
+			patients: customers
+		});
 	});
 };
+
+exports.reportPost = (req, res) => {
+	const patients = req.session.patients;
+	if (!patients) {
+		console.log("no patients")
+		patients = [];
+	}
+
+	const body = req.body;
+
+	const patientId = body.patientId;
+
+	const patientData = {
+		bodyTemp: body.bodyTemp,
+		heartRate: body.heartRate,
+		bloodPressure: body.bloodPressure,
+		respiratoryRate: body.respiratoryRate,
+		weight: body.weight,
+	};
+
+	PatientDataModel.create(patientData, (err, returnedPatientData) => {
+		if (err) {
+			console.log(err);
+			res.render("nurse/report", {
+				title: newReport,
+				error: "Could not save report",
+			});
+		} else {
+			res.render("nurse/report", {
+				title: newReport,
+				success: "Report saved successfully",
+			});
+		}
+	});
+}
+
+
 exports.viewReportsGet = (req, res) => {
 	CustomerModel.find({ accounttype: "Patient" }, (err, customers) => {
 		if (err) {

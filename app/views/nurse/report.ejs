@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+	<title>Medical Cartel</title>
+</head>
+
+<body>
+	<section class="section">
+		<div class="container">
+			<form method="POST">
+				<div class="field">
+					<div class="select">
+						<select id="patientUsername" name="patientId">
+							<% patients.forEach(function(patient){ %>
+							<option value="patient._id"><%= patient.username %></option>
+							<% }); %>
+						</select>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="bodyTemp">Body Temperature:</label>
+					<div class="control">
+						<input class="input" type="text" name="bodyTemp" placeholder="Text Input" />
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="heartRate">Heart Rate:</label>
+					<div class="control">
+						<input class="input" type="heartRate" name="heartRate" placeholder="Text Input" />
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="bloodPressure">Blood Pressure:</label>
+					<div class="control">
+						<input class="input" type="bloodPressure" name="bloodPressure" placeholder="Text Input" />
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="respiratoryRate">Respiratory Rate:</label>
+					<div class="control">
+						<input class="input" type="respiratoryRate" name="respiratoryRate" placeholder="Text Input" />
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="weight">Weight:</label>
+					<div class="control">
+						<input class="input" type="weight" name="weight" placeholder="Text Input" />
+					</div>
+				</div>
+				<div class="control">
+					<input class="button is-link" type="submit" value="Submit" />
+					<a class="button" href="/patient">Go Back</a>
+				</div>
+			</form>
+			<% if (locals.error) { %>
+			<section class="section">
+				<div class="container">
+					<div class="notification is-danger">
+						<%= error %>
+					</div>
+				</div>
+			</section>
+			<% } %>
+
+			<% if (locals.success) { %>
+			<section class="section">
+				<div class="container">
+					<div class="notification is-success">
+						<%= success %>
+					</div>
+				</div>
+			</section>
+			<% } %>
+		</div>
+	</section>
+</body>
+
+</html>

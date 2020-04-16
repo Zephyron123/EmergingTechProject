@@ -23,7 +23,8 @@
 	app.get('/patient/diagnosis', patient.diagnosis);
 
 	app.get('/nurse', nurse.render);
-	app.get('/nurse/report', nurse.report);
+	app.get('/nurse/report', nurse.reportGet);
+	app.post('/nurse/report', nurse.reportPost);
 	app.get('/nurse/viewReports', nurse.viewReportsGet);
 	app.post('/nurse/viewReports', nurse.viewReportsPost);
 	app.get('/nurse/submitMotivation', nurse.submitMotivation);
