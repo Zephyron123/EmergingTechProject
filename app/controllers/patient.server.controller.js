@@ -1,5 +1,5 @@
 exports.emergency = (req, res) => {
-	res.render('index', {
+	res.render('patient/emergency', {
 		title: "Emergency Response"
 	});
 }

@@ -1,20 +1,20 @@
 exports.report = (req, res) => {
 	res.render('index', {
-		title: "Emergency Response"
+		title: "Report"
 	});
 }
 exports.viewReports = (req, res) => {
 	res.render('index', {
-		title: "Motivation Video"
+		title: "View Reports"
 	});
 }
 exports.submitMotivation = (req, res) => {
 	res.render('index', {
-		title: "Diagnosis Report"
+		title: "Submit Motivation"
 	});
 }
 exports.render = (req, res) => {
-	res.render('index', {
+	res.render('nurse', {
 		title: "Nurse Profile"
 	});
 }

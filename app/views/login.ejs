@@ -29,6 +29,16 @@
 			</form>
 		</div>
 	</section>
+	
+	<% if (locals.error) { %>
+		<section class="section">
+			<div class="container">
+				<div class="notification is-danger">
+					<%= error %>
+				</div>
+			</div>
+		</section>
+		<% } %>
 </body>
 
 </html>

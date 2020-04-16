@@ -10,6 +10,7 @@
     app.get('/', index.render);
 	app.post('/', index.render);
 	app.get('/login', login.render);
+	app.post('/login', login.post);
 
 	app.get('/signup', signup.render);
 	app.post('/signup', signup.post);

@@ -61,16 +61,16 @@ exports.post = (req, res, next) => {
 			return;
 		}
 
-		CustomerModel.create(user, (err) => {
+		CustomerModel.create(user, (err, returnedUser) => {
 			if (err) {
 				showError(err);
 				return;
 			} 
-			req.session.user = user;
-			if (user.accounttype == "Patient") {
+			req.session.user = returnedUser;
+			if (returnedUser.accounttype == "Patient") {
 				res.redirect("patient");
 			}
-			else if (user.accounttype == "Nurse") {
+			else if (returnedUser.accounttype == "Nurse") {
 				res.redirect("nurse");
 			}
 		});
