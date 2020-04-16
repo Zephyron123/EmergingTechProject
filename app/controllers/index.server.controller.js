@@ -1,21 +1,14 @@
-﻿
-exports.render = (req, res, next) => {
-    /*if (req.method == "POST") {
-        const body = req.body;
+﻿exports.render = (req, res, next) => {
+	const user = req.session.user;
 
-        if (body.email && body.password) {
-            // All the fields are filled. Perform the login
-            customer.login(req, res, next);
-        } else {
-            // Missing fields. Re-render the page passing an error message.
-            res.render('index', {
-                error: 'Please, enter your email and password!',
-                email: strUtils.getSafe(body.email),
-            });
-        }
-    } else {*/
-        res.render('index', {
-            title: "Main Page"
-        });
-    //}
-}
+	if (user) {
+		if (user.accounttype == "Patient") {
+			res.redirect("patient");
+		} else if (user.accounttype == "Nurse") {
+			res.redirect("nurse");
+		}
+	}
+	res.render("index", {
+		title: "Main Page",
+	});
+};
