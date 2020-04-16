@@ -17,6 +17,7 @@ exports.submitMotivation = (req, res) => {
 }
 exports.submitMotivationPost = (req, res) => {
 	const motivation = {
+		title: req.body.title,
 		link: req.body.link
 	};
 
